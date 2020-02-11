@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        self.setup()
         return true
     }
 
@@ -44,3 +44,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+// MARK: Setup splitView
+fileprivate extension AppDelegate {
+
+    func setup() {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+
+        // Root split controller
+        let rootController = RootController()
+
+        // Country List controller, wrapped in nav controller
+        let countryList = CountriesTableViewController()
+        let masterController = UINavigationController(rootViewController: countryList)
+
+        // Province detail controller
+        let provinceController = ProvinceViewController()
+        let detailController = UINavigationController(rootViewController: provinceController)
+
+        // Add controllers to the root split controller
+        rootController.viewControllers = [masterController, detailController]
+        rootController.preferredDisplayMode = .allVisible
+
+        window?.rootViewController = rootController
+    }
+
+}
