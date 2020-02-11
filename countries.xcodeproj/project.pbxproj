@@ -13,6 +13,8 @@
 		3175295D23F226CA004A944C /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175295C23F226CA004A944C /* RootController.swift */; };
 		3175295F23F226E1004A944C /* CountriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175295E23F226E1004A944C /* CountriesTableViewController.swift */; };
 		3175296123F2270A004A944C /* ProvinceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175296023F2270A004A944C /* ProvinceViewController.swift */; };
+		3175296423F22D93004A944C /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175296323F22D93004A944C /* Country.swift */; };
+		3175296623F22E1C004A944C /* Province.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175296523F22E1C004A944C /* Province.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		3175295C23F226CA004A944C /* RootController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootController.swift; sourceTree = "<group>"; };
 		3175295E23F226E1004A944C /* CountriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesTableViewController.swift; sourceTree = "<group>"; };
 		3175296023F2270A004A944C /* ProvinceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvinceViewController.swift; sourceTree = "<group>"; };
+		3175296323F22D93004A944C /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		3175296523F22E1C004A944C /* Province.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Province.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		3175294923F225A9004A944C /* countries */ = {
 			isa = PBXGroup;
 			children = (
+				3175296223F22D78004A944C /* models */,
 				3175294A23F225A9004A944C /* AppDelegate.swift */,
 				3175295123F225AA004A944C /* Assets.xcassets */,
 				3175295323F225AA004A944C /* LaunchScreen.storyboard */,
@@ -65,6 +70,15 @@
 				3175296023F2270A004A944C /* ProvinceViewController.swift */,
 			);
 			path = countries;
+			sourceTree = "<group>";
+		};
+		3175296223F22D78004A944C /* models */ = {
+			isa = PBXGroup;
+			children = (
+				3175296323F22D93004A944C /* Country.swift */,
+				3175296523F22E1C004A944C /* Province.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +154,8 @@
 				3175296123F2270A004A944C /* ProvinceViewController.swift in Sources */,
 				3175294B23F225A9004A944C /* AppDelegate.swift in Sources */,
 				3175295F23F226E1004A944C /* CountriesTableViewController.swift in Sources */,
+				3175296623F22E1C004A944C /* Province.swift in Sources */,
+				3175296423F22D93004A944C /* Country.swift in Sources */,
 				3175295D23F226CA004A944C /* RootController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
