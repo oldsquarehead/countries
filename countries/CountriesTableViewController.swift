@@ -10,6 +10,18 @@ import UIKit
 
 class CountriesTableViewController: UITableViewController {
 
+    fileprivate let coordinator: AppCoordinator
+
+    init(with coordinator: AppCoordinator) {
+        self.coordinator = coordinator
+        super.init(style: .plain)
+        self.coordinator.setCountryDelegate(self)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     static let reuseIdentifier = "CountryCell"
 
     fileprivate var countryList: [Country] = []
@@ -35,8 +47,8 @@ class CountriesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let provinceVc = ProvinceViewController()
-        provinceVc.showCountry(for: Country.testCountries[indexPath.row])
+        let provinceVc = ProvinceViewController(with: self.coordinator)
+        provinceVc.showCountry(for: self.countryList[indexPath.row])
 
         let nc = UINavigationController()
         nc.viewControllers = [provinceVc]

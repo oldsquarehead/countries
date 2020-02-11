@@ -15,10 +15,6 @@ class RootController: UISplitViewController {
         super.viewDidLoad()
     }
 
-    func setup() {
-
-    }
-
 }
 
 // MARK: UISplitViewControllerDelegate

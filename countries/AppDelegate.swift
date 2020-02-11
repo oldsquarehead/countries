@@ -55,12 +55,11 @@ fileprivate extension AppDelegate {
         let rootController = RootController()
 
         // Country List controller, wrapped in nav controller
-        let countryList = CountriesTableViewController()
-        self.appCoordinator.setCountryDelegate(countryList)
+        let countryList = CountriesTableViewController(with: self.appCoordinator)
         let masterController = UINavigationController(rootViewController: countryList)
 
         // Province detail controller
-        let provinceController = ProvinceViewController()
+        let provinceController = ProvinceViewController(with: self.appCoordinator)
         let detailController = UINavigationController(rootViewController: provinceController)
 
         // Add controllers to the root split controller
