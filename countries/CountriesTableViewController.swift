@@ -31,4 +31,14 @@ class CountriesTableViewController: UITableViewController {
         cell.textLabel?.text = Country.testCountries[indexPath.row].Name
         return cell
     }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let provinceVc = ProvinceViewController()
+        provinceVc.showCountry(for: Country.testCountries[indexPath.row])
+
+        let nc = UINavigationController()
+        nc.viewControllers = [provinceVc]
+
+        self.showDetailViewController(nc, sender: self)
+    }
 }
