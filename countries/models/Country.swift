@@ -15,5 +15,3 @@ public struct Country: Decodable {
     Code: String,
     PhoneCode: String?
 }
-
-
