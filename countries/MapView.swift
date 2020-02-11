@@ -31,8 +31,18 @@ class MapView: UIView {
 
 extension MapView {
 
-    func centerOn() {
-        
+    func center(on province: Province) {
+        let request = MKLocalSearch.Request()
+
+        // Use a basic combo of country code and province name
+        request.naturalLanguageQuery = province.CountryCode + ", " + province.Name
+        let search = MKLocalSearch(request: request)
+        search.start { response, error in
+            guard error == nil, let response = response else { return }
+
+            // Adjust display to the region to handle basic zoom/position
+            self.map.setRegion(response.boundingRegion, animated: true)
+        }
     }
     
 }

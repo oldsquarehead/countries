@@ -95,7 +95,7 @@ extension ProvinceViewController: AppCoordinatorProvinceDelegate {
 extension ProvinceViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        ProvinceViewController.map.centerOn()
+        ProvinceViewController.map.center(on: self.provinceList[indexPath.row])
     }
 
 }
