@@ -39,8 +39,8 @@ extension RootController: AppCoordinatorDelegate {
         self.loadingModal.removeFromSuperview()
     }
 
-    func error(error: NSError) {
-
+    func error(error: ApiError) {
+        print(error.toString)
     }
 
 }

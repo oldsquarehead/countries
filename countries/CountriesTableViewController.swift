@@ -83,7 +83,7 @@ extension CountriesTableViewController: AppCoordinatorCountryDelegate {
 
     }
 
-    func error(error: NSError) {
+    func error(error: ApiError) {
 
     }
 }

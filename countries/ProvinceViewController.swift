@@ -93,8 +93,7 @@ extension ProvinceViewController: AppCoordinatorProvinceDelegate {
 
     }
 
-    func error(error: NSError) {
-
+    func error(error: ApiError) {
     }
 }
 

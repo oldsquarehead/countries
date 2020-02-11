@@ -11,7 +11,7 @@ import Foundation
 protocol AppCoordinatorDelegate: class {
     func startLoading()
     func endLoading()
-    func error(error: NSError)
+    func error(error: ApiError)
 }
 
 protocol AppCoordinatorCountryDelegate: AppCoordinatorDelegate {
@@ -42,20 +42,28 @@ final class AppCoordinator {
 
     func requestCountries() {
         self.rootDelegate?.startLoading()
-        Api.getCountries { [unowned self] countries in
+        Api.getCountries { [unowned self] countries, error in
             DispatchQueue.main.async {
                 self.rootDelegate?.endLoading()
-                self.countryDelegate?.countriesLoaded(countries: countries)
+                if let error = error {
+                    self.rootDelegate?.error(error: error)
+                } else {
+                    self.countryDelegate?.countriesLoaded(countries: countries)
+                }
             }
         }
     }
 
     func requestProvinces(for id: Int) {
         self.rootDelegate?.startLoading()
-        Api.getProvinces(for: id) { [unowned self] provinces in
+        Api.getProvinces(for: id) { [unowned self] provinces, error in
             DispatchQueue.main.async {
                 self.rootDelegate?.endLoading()
-                self.provinceDelegate?.provincesLoaded(provinces: provinces)
+                if let error = error {
+                    self.rootDelegate?.error(error: error)
+                } else {
+                    self.provinceDelegate?.provincesLoaded(provinces: provinces)
+                }
             }
         }
     }
