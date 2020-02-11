@@ -13,18 +13,7 @@ class ProvinceViewController: UIViewController {
 
     static let reuseIdentifier = "ProvinceCell"
 
-    fileprivate var labelText: String?
-
     fileprivate var provinceList: [Province] = []
-
-    fileprivate lazy var label: UILabel = {
-        let label = UILabel()
-        label.text = self.labelText
-        label.sizeToFit()
-        label.textColor = .white
-        label.center = self.view.center
-        return label
-    }()
 
     fileprivate lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -32,7 +21,6 @@ class ProvinceViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: ProvinceViewController.reuseIdentifier)
         return tableView
-
     }()
 
     fileprivate weak var coordinator: AppCoordinator?
@@ -77,9 +65,7 @@ extension ProvinceViewController {
 extension ProvinceViewController: AppCoordinatorProvinceDelegate {
     func provincesLoaded(provinces: [Province]) {
         self.provinceList = provinces
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
+        self.tableView.reloadData()
     }
 
     func startLoading() {

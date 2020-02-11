@@ -14,9 +14,4 @@ struct Province: Decodable {
     CountryCode: String,
     Code: String,
     Name: String
-
-    static let testCountries: [Province] = [
-        Province(ID: 97, CountryCode: "US", Code: "AL", Name: "Alabama"),
-        Province(ID: 101,  CountryCode: "US", Code: "AK", Name: "Alaska")
-    ]
 }

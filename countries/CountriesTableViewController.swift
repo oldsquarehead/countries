@@ -28,6 +28,8 @@ class CountriesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: CountriesTableViewController.reuseIdentifier)
     }
 
@@ -54,12 +56,17 @@ class CountriesTableViewController: UITableViewController {
 
         self.showDetailViewController(nc, sender: self)
     }
+
+    @objc private func refresh(_ sender: Any) {
+        self.coordinator.requestCountries()
+    }
 }
 
 extension CountriesTableViewController: AppCoordinatorCountryDelegate {
     func countriesLoaded(countries: [Country]) {
         self.countryList = countries
         self.tableView.reloadData()
+        self.refreshControl?.endRefreshing()
     }
 
     func startLoading() {
