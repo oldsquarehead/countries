@@ -13,7 +13,7 @@ public struct Country: Decodable {
     ID: Int,
     Name: String,
     Code: String,
-    PhoneCode: String
+    PhoneCode: String?
 
     static let testCountries: [Country] = [
         Country(ID: 227, Name: "United States", Code: "US", PhoneCode: "1"),

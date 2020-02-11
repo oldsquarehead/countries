@@ -13,6 +13,13 @@ class RootController: UISplitViewController {
     override func viewDidLoad() {
         self.delegate = self
         super.viewDidLoad()
+        Api.getCountries { countries in
+            debugPrint(countries)
+        }
+
+        Api.getProvinces(for: 227) { provinces in
+            debugPrint(provinces)
+        }
     }
 
 }

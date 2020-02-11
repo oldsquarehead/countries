@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B1020971B8D702901535AC4 /* Pods_countries.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4DA6DA599F9BD1C9B10E255 /* Pods_countries.framework */; };
 		3175294B23F225A9004A944C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175294A23F225A9004A944C /* AppDelegate.swift */; };
 		3175295223F225AA004A944C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3175295123F225AA004A944C /* Assets.xcassets */; };
 		3175295523F225AA004A944C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3175295323F225AA004A944C /* LaunchScreen.storyboard */; };
@@ -15,6 +16,7 @@
 		3175296123F2270A004A944C /* ProvinceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175296023F2270A004A944C /* ProvinceViewController.swift */; };
 		3175296423F22D93004A944C /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175296323F22D93004A944C /* Country.swift */; };
 		3175296623F22E1C004A944C /* Province.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175296523F22E1C004A944C /* Province.swift */; };
+		3175296923F23761004A944C /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175296823F23761004A944C /* Api.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,10 @@
 		3175296023F2270A004A944C /* ProvinceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvinceViewController.swift; sourceTree = "<group>"; };
 		3175296323F22D93004A944C /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		3175296523F22E1C004A944C /* Province.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Province.swift; sourceTree = "<group>"; };
+		3175296823F23761004A944C /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		D624BA62CE6CBAE1CC49A685 /* Pods-countries.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-countries.release.xcconfig"; path = "Target Support Files/Pods-countries/Pods-countries.release.xcconfig"; sourceTree = "<group>"; };
+		E4DA6DA599F9BD1C9B10E255 /* Pods_countries.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_countries.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEFDF68C5490C08E4B1B64B1 /* Pods-countries.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-countries.debug.xcconfig"; path = "Target Support Files/Pods-countries/Pods-countries.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +41,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B1020971B8D702901535AC4 /* Pods_countries.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		020425068B5A6C011CFF3DEC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4DA6DA599F9BD1C9B10E255 /* Pods_countries.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3175293E23F225A9004A944C = {
 			isa = PBXGroup;
 			children = (
 				3175294923F225A9004A944C /* countries */,
 				3175294823F225A9004A944C /* Products */,
+				88D277326A56E84083854288 /* Pods */,
+				020425068B5A6C011CFF3DEC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +77,7 @@
 		3175294923F225A9004A944C /* countries */ = {
 			isa = PBXGroup;
 			children = (
+				3175296723F23751004A944C /* api */,
 				3175296223F22D78004A944C /* models */,
 				3175294A23F225A9004A944C /* AppDelegate.swift */,
 				3175295123F225AA004A944C /* Assets.xcassets */,
@@ -81,6 +99,23 @@
 			path = models;
 			sourceTree = "<group>";
 		};
+		3175296723F23751004A944C /* api */ = {
+			isa = PBXGroup;
+			children = (
+				3175296823F23761004A944C /* Api.swift */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		88D277326A56E84083854288 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FEFDF68C5490C08E4B1B64B1 /* Pods-countries.debug.xcconfig */,
+				D624BA62CE6CBAE1CC49A685 /* Pods-countries.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -88,9 +123,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3175295923F225AA004A944C /* Build configuration list for PBXNativeTarget "countries" */;
 			buildPhases = (
+				129D66D9D665047A5728E6C3 /* [CP] Check Pods Manifest.lock */,
 				3175294323F225A9004A944C /* Sources */,
 				3175294423F225A9004A944C /* Frameworks */,
 				3175294523F225A9004A944C /* Resources */,
+				3427330FAF63F729A6A7B05F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -146,6 +183,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		129D66D9D665047A5728E6C3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-countries-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3427330FAF63F729A6A7B05F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-countries/Pods-countries-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-countries/Pods-countries-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-countries/Pods-countries-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3175294323F225A9004A944C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -156,6 +235,7 @@
 				3175295F23F226E1004A944C /* CountriesTableViewController.swift in Sources */,
 				3175296623F22E1C004A944C /* Province.swift in Sources */,
 				3175296423F22D93004A944C /* Country.swift in Sources */,
+				3175296923F23761004A944C /* Api.swift in Sources */,
 				3175295D23F226CA004A944C /* RootController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,6 +372,7 @@
 		};
 		3175295A23F225AA004A944C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEFDF68C5490C08E4B1B64B1 /* Pods-countries.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -310,6 +391,7 @@
 		};
 		3175295B23F225AA004A944C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D624BA62CE6CBAE1CC49A685 /* Pods-countries.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
