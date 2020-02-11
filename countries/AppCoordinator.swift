@@ -26,6 +26,7 @@ final class AppCoordinator {
 
     private weak var countryDelegate: AppCoordinatorCountryDelegate?
     private weak var provinceDelegate: AppCoordinatorProvinceDelegate?
+    private weak var rootDelegate: AppCoordinatorDelegate?
 
     func setCountryDelegate(_ delegate: AppCoordinatorCountryDelegate) {
         self.countryDelegate = delegate
@@ -35,21 +36,25 @@ final class AppCoordinator {
         self.provinceDelegate = delegate
     }
 
+    func setRootDelegate(_ delegate: AppCoordinatorDelegate) {
+        self.rootDelegate = delegate
+    }
+
     func requestCountries() {
-        self.countryDelegate?.startLoading()
+        self.rootDelegate?.startLoading()
         Api.getCountries { [unowned self] countries in
             DispatchQueue.main.async {
-                self.countryDelegate?.endLoading()
+                self.rootDelegate?.endLoading()
                 self.countryDelegate?.countriesLoaded(countries: countries)
             }
         }
     }
 
     func requestProvinces(for id: Int) {
-        self.provinceDelegate?.startLoading()
+        self.rootDelegate?.startLoading()
         Api.getProvinces(for: id) { [unowned self] provinces in
             DispatchQueue.main.async {
-                self.provinceDelegate?.endLoading()
+                self.rootDelegate?.endLoading()
                 self.provinceDelegate?.provincesLoaded(provinces: provinces)
             }
         }

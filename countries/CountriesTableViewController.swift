@@ -32,6 +32,9 @@ class CountriesTableViewController: UITableViewController {
         // Setup refresh control
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+
+        // Annotate the header
+        self.navigationItem.title = NSLocalizedString("Countries", comment: "Header display title for country VC")
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: CountriesTableViewController.reuseIdentifier)
     }

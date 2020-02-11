@@ -14,10 +14,12 @@ class ProvinceViewController: UIViewController {
 
     static let reuseIdentifier = "ProvinceCell"
 
+    // Static map to avoid repainting
     fileprivate static let map = MapView()
 
     fileprivate var provinceList: [Province] = []
 
+    // Basic table view for showing province spi results
     fileprivate lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.delegate = self
@@ -42,6 +44,10 @@ class ProvinceViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Annotate the header
+        self.navigationItem.title = NSLocalizedString("Provinces", comment: "Header display title for province VC")
+
         self.layout()
     }
 }

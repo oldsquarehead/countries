@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2B1020971B8D702901535AC4 /* Pods_countries.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4DA6DA599F9BD1C9B10E255 /* Pods_countries.framework */; };
+		31707BB823F2FB69001BCD55 /* LoadingModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31707BB723F2FB69001BCD55 /* LoadingModal.swift */; };
 		3175294B23F225A9004A944C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175294A23F225A9004A944C /* AppDelegate.swift */; };
 		3175295223F225AA004A944C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3175295123F225AA004A944C /* Assets.xcassets */; };
 		3175295523F225AA004A944C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3175295323F225AA004A944C /* LaunchScreen.storyboard */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		31707BB723F2FB69001BCD55 /* LoadingModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingModal.swift; sourceTree = "<group>"; };
 		3175294723F225A9004A944C /* countries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = countries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3175294A23F225A9004A944C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3175295123F225AA004A944C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				3175296023F2270A004A944C /* ProvinceViewController.swift */,
 				3175296C23F2417E004A944C /* AppCoordinator.swift */,
 				3175297223F2661D004A944C /* MapView.swift */,
+				31707BB723F2FB69001BCD55 /* LoadingModal.swift */,
 			);
 			path = countries;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				3175296623F22E1C004A944C /* Province.swift in Sources */,
 				3175296D23F2417E004A944C /* AppCoordinator.swift in Sources */,
 				3175296423F22D93004A944C /* Country.swift in Sources */,
+				31707BB823F2FB69001BCD55 /* LoadingModal.swift in Sources */,
 				3175296923F23761004A944C /* Api.swift in Sources */,
 				3175297323F2661D004A944C /* MapView.swift in Sources */,
 				3175295D23F226CA004A944C /* RootController.swift in Sources */,

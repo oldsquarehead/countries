@@ -65,6 +65,7 @@ fileprivate extension AppDelegate {
         // Add controllers to the root split controller
         rootController.viewControllers = [masterController, detailController]
         rootController.preferredDisplayMode = .allVisible
+        appCoordinator.setRootDelegate(rootController)
 
         window?.rootViewController = rootController
 
