@@ -7,5 +7,6 @@ target 'countries' do
 
   # Pods for countries
   pod 'Alamofire', '~> 5.0.0-rc.3'
+  pod 'EasyPeasy'
 
 end

@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import EasyPeasy
 
 class ProvinceViewController: UIViewController {
 
+    static let reuseIdentifier = "ProvinceCell"
+
     fileprivate var labelText: String?
+
+    fileprivate var provinceList: [Province] = []
 
     fileprivate lazy var label: UILabel = {
         let label = UILabel()
@@ -19,6 +24,15 @@ class ProvinceViewController: UIViewController {
         label.textColor = .white
         label.center = self.view.center
         return label
+    }()
+
+    fileprivate lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: ProvinceViewController.reuseIdentifier)
+        return tableView
+
     }()
 
     fileprivate weak var coordinator: AppCoordinator?
@@ -36,10 +50,20 @@ class ProvinceViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .red
-        self.view.addSubview(self.label)
+        self.layout()
     }
+}
 
+fileprivate extension ProvinceViewController {
+
+    func layout() {
+        self.view.addSubview(self.tableView)
+        self.tableView.easy.layout(
+            Height(*0.5).like(self.view),
+            Width().like(self.view),
+            Bottom().to(self.view, .bottom)
+        )
+    }
 }
 
 extension ProvinceViewController {
@@ -52,7 +76,10 @@ extension ProvinceViewController {
 
 extension ProvinceViewController: AppCoordinatorProvinceDelegate {
     func provincesLoaded(provinces: [Province]) {
-        print(provinces)
+        self.provinceList = provinces
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 
     func startLoading() {
@@ -66,4 +93,21 @@ extension ProvinceViewController: AppCoordinatorProvinceDelegate {
     func error(error: NSError) {
 
     }
+}
+
+extension ProvinceViewController: UITableViewDelegate {
+
+}
+
+extension ProvinceViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.provinceList.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProvinceViewController.reuseIdentifier, for: indexPath)
+        cell.textLabel?.text = self.provinceList[indexPath.row].Name
+        return cell
+    }
+
 }
