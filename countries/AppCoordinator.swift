@@ -22,7 +22,7 @@ protocol AppCoordinatorProvinceDelegate: AppCoordinatorDelegate {
     func provincesLoaded(provinces: [Province])
 }
 
-class AppCoordinator {
+final class AppCoordinator {
 
     private weak var countryDelegate: AppCoordinatorCountryDelegate?
     private weak var provinceDelegate: AppCoordinatorProvinceDelegate?

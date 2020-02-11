@@ -18,6 +18,7 @@
 		3175296623F22E1C004A944C /* Province.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175296523F22E1C004A944C /* Province.swift */; };
 		3175296923F23761004A944C /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175296823F23761004A944C /* Api.swift */; };
 		3175296D23F2417E004A944C /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175296C23F2417E004A944C /* AppCoordinator.swift */; };
+		3175297323F2661D004A944C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175297223F2661D004A944C /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		3175296523F22E1C004A944C /* Province.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Province.swift; sourceTree = "<group>"; };
 		3175296823F23761004A944C /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		3175296C23F2417E004A944C /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		3175297223F2661D004A944C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		D624BA62CE6CBAE1CC49A685 /* Pods-countries.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-countries.release.xcconfig"; path = "Target Support Files/Pods-countries/Pods-countries.release.xcconfig"; sourceTree = "<group>"; };
 		E4DA6DA599F9BD1C9B10E255 /* Pods_countries.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_countries.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEFDF68C5490C08E4B1B64B1 /* Pods-countries.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-countries.debug.xcconfig"; path = "Target Support Files/Pods-countries/Pods-countries.debug.xcconfig"; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				3175295E23F226E1004A944C /* CountriesTableViewController.swift */,
 				3175296023F2270A004A944C /* ProvinceViewController.swift */,
 				3175296C23F2417E004A944C /* AppCoordinator.swift */,
+				3175297223F2661D004A944C /* MapView.swift */,
 			);
 			path = countries;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				3175296D23F2417E004A944C /* AppCoordinator.swift in Sources */,
 				3175296423F22D93004A944C /* Country.swift in Sources */,
 				3175296923F23761004A944C /* Api.swift in Sources */,
+				3175297323F2661D004A944C /* MapView.swift in Sources */,
 				3175295D23F226CA004A944C /* RootController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

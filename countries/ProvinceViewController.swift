@@ -8,10 +8,13 @@
 
 import UIKit
 import EasyPeasy
+import MapKit
 
 class ProvinceViewController: UIViewController {
 
     static let reuseIdentifier = "ProvinceCell"
+
+    fileprivate static let map = MapView()
 
     fileprivate var provinceList: [Province] = []
 
@@ -20,6 +23,7 @@ class ProvinceViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: ProvinceViewController.reuseIdentifier)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
 
@@ -50,6 +54,13 @@ fileprivate extension ProvinceViewController {
             Height(*0.5).like(self.view),
             Width().like(self.view),
             Bottom().to(self.view, .bottom)
+        )
+
+        self.view.addSubview(ProvinceViewController.map)
+        ProvinceViewController.map.easy.layout(
+            Height(*0.5).like(self.view),
+            Width().like(self.view),
+            Top().to(self.view, .top)
         )
     }
 }
@@ -82,6 +93,10 @@ extension ProvinceViewController: AppCoordinatorProvinceDelegate {
 }
 
 extension ProvinceViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        ProvinceViewController.map.centerOn()
+    }
 
 }
 
