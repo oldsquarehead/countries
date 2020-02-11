@@ -19,6 +19,15 @@ class ProvinceViewController: UIViewController {
 
     fileprivate var provinceList: [Province] = []
 
+    // The empty message label
+    fileprivate lazy var emptyMessage: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.textAlignment = .center
+        label.text = NSLocalizedString("No Provinces", comment: "empty province message")
+        return label
+    }()
+
     // Basic table view for showing province spi results
     fileprivate lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -55,18 +64,31 @@ class ProvinceViewController: UIViewController {
 fileprivate extension ProvinceViewController {
 
     func layout() {
-        self.view.addSubview(self.tableView)
-        self.tableView.easy.layout(
-            Height(*0.5).like(self.view),
-            Width().like(self.view),
-            Bottom().to(self.view, .bottom)
-        )
+        self.view.backgroundColor = .white
 
         self.view.addSubview(ProvinceViewController.map)
         ProvinceViewController.map.easy.layout(
             Height(*0.5).like(self.view),
             Width().like(self.view),
             Top().to(self.view, .top)
+        )
+    }
+
+    func addTable() {
+        self.view.addSubview(self.tableView)
+        self.tableView.easy.layout(
+            Height(*0.5).like(self.view),
+            Width().like(self.view),
+            Bottom().to(self.view, .bottom)
+        )
+    }
+
+    func addEmptyMessage() {
+        self.view.addSubview(self.emptyMessage)
+        self.emptyMessage.easy.layout(
+            Height(*0.5).like(self.view),
+            Width().like(self.view),
+            Bottom().to(self.view, .bottom)
         )
     }
 }
@@ -82,7 +104,12 @@ extension ProvinceViewController {
 extension ProvinceViewController: AppCoordinatorProvinceDelegate {
     func provincesLoaded(provinces: [Province]) {
         self.provinceList = provinces
-        self.tableView.reloadData()
+        if self.provinceList.isEmpty {
+            self.addEmptyMessage()
+        } else {
+            self.addTable()
+            self.tableView.reloadData()
+        }
     }
 
     func startLoading() {
