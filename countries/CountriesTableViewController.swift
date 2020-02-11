@@ -12,6 +12,8 @@ class CountriesTableViewController: UITableViewController {
 
     static let reuseIdentifier = "CountryCell"
 
+    fileprivate var countryList: [Country] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .blue
@@ -23,12 +25,12 @@ class CountriesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Country.testCountries.count
+        return self.countryList.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CountriesTableViewController.reuseIdentifier, for: indexPath)
-        cell.textLabel?.text = Country.testCountries[indexPath.row].Name
+        cell.textLabel?.text = self.countryList[indexPath.row].Name
         return cell
     }
 
@@ -40,5 +42,24 @@ class CountriesTableViewController: UITableViewController {
         nc.viewControllers = [provinceVc]
 
         self.showDetailViewController(nc, sender: self)
+    }
+}
+
+extension CountriesTableViewController: AppCoordinatorCountryDelegate {
+    func countriesLoaded(countries: [Country]) {
+        self.countryList = countries
+        self.tableView.reloadData()
+    }
+
+    func startLoading() {
+
+    }
+
+    func endLoading() {
+
+    }
+
+    func error(error: NSError) {
+
     }
 }

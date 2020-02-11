@@ -12,6 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let appCoordinator = AppCoordinator()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.setup()
@@ -55,6 +56,7 @@ fileprivate extension AppDelegate {
 
         // Country List controller, wrapped in nav controller
         let countryList = CountriesTableViewController()
+        self.appCoordinator.setCountryDelegate(countryList)
         let masterController = UINavigationController(rootViewController: countryList)
 
         // Province detail controller
@@ -66,6 +68,9 @@ fileprivate extension AppDelegate {
         rootController.preferredDisplayMode = .allVisible
 
         window?.rootViewController = rootController
+
+        // Initial request for the data
+        appCoordinator.requestCountries()
     }
 
 }
